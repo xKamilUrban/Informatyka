@@ -1,0 +1,62 @@
+#Rekursja mnożenie
+def multi(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 3
+    else: 
+        return multi(n-1) + 3
+        
+print(multi(39))
+
+#Znalezienie mediany
+
+def Sortowanie(list):
+     for i in range(1, len(list)):
+        key = list[i]
+        j = i-1
+        while j >= 0 and key < list[j] :
+                list[j + 1] = list[j]
+                j -= 1
+        list[j + 1] = key
+
+list = [7, 2, 16, 4]
+Sortowanie(list)
+print (list)
+
+def mediana(list):
+    if len(list) == 1:
+        return list[0]
+    elif len(list) % 2 == 0:
+        return (list[int(len(list)/2 - 1)] + list[int(len(list)/2 )])/2
+    else:
+        return list[int(((len(list) + 1) / 2) - 1)]
+        
+print(mediana(list))
+
+#Sortowanie przez wybieranie - modyfikacja
+
+def Sortowanie(list):
+     for i in range(1, len(list)):
+        key = list[i]
+        j = i-1
+        while j >= 0 and key > list[j] :
+                list[j + 1] = list[j]
+                j -= 1
+        list[j + 1] = key
+
+list = [7, 2, 16, 4]
+Sortowanie(list)
+print (list)
+
+
+        
+#Suma kolejnych liczb naturalnych
+
+def sum_natural(n):
+    if n == 1:
+        return 1
+    else:
+        return sum_natural(n-1)+n
+        
+print(sum_natural(8))
