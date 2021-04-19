@@ -1,0 +1,54 @@
+#zadanie 1)
+
+def Sortowanie(list):
+     for i in range(1, len(list)):
+        key = list[i]
+        j = i-1
+        while j >= 0 and key < list[j] :
+                list[j + 1] = list[j]
+                j -= 1
+        list[j + 1] = key
+
+list = [-2, 15, -43, -79]
+Sortowanie(list)
+
+def last(list):
+    if len(list) == 1:
+        return "Nie istnieje"
+    else:
+        return list[len(list)-2]
+        
+print (last(list))
+
+#zadanie 2)
+
+def b_last(lista):
+    max = lista[0]
+    for i in range(0, len(lista)-1):
+        if lista[i] > max:
+            max = lista[i]
+    
+        maxx = lista[0]
+        if lista[i] == max:
+            maxx = lista[i+1]
+        elif lista[i] > maxx:
+            maxx = lista[i]
+            
+    return maxx
+    
+
+lista = [-2, 15, -43, -79]
+print(b_last(lista))
+
+#zadanie 4)
+
+def suma(napis):
+    suma_ = 0
+    for i in range(0, len(napis)-1):
+        if napis[i] == "a" and napis[i+1] == "b" and napis[i+2] == "c":
+            suma_=suma_+1
+    return suma_
+            
+napis = "abxcsabcabcabc"
+suma(napis)
+print(suma(napis))
