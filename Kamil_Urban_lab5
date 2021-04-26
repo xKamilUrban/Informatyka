@@ -1,0 +1,25 @@
+#Zadanie 1)
+
+def trace(A):
+    i=-1
+    s=0
+    for el in A:
+        if len(A)==len(el):
+            i=i+1
+            s=s+el[i]
+    return s
+    
+print(trace([[2,7,8,4],[0,-7,4,5],[1,2,-3,12],[1,0,4,10]]))
+
+#Zadanie 2)
+
+def transpose(v):
+    import copy
+    a = copy.deepcopy(v)
+    for k in range(len(v[0])):
+        for n in range(len(v)):
+            a[k][n]=v[n][k]
+    return a
+
+v = [[-1,4,5], [2,1,0],[3,1,1]]
+print(transpose(v))
