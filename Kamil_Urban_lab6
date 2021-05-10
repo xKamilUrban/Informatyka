@@ -1,0 +1,77 @@
+#Zadanie 2
+
+slownik = {'k1': 'w1', 'k2': 'w2','k3': 'w3', 'k4': 'w4','k5': 'w5', 'k6': 'w6','k7': 'w7', 'k8': 'w8','k9': 'w9', 'k10': 'w10','k11': 'w11'}
+
+slownik['k12']='w12'
+kopia=slownik.copy()
+slownik2={}
+
+print(slownik.clear())
+slownik3=slownik2.fromkeys(['a','b'],'w')
+print(slownik3)
+print(kopia.get('k12'))
+print(kopia.get('k13','N/A'))
+print(slownik3.items())
+print(kopia.keys())
+print(kopia.pop('k12'))
+print(kopia.pop('k12','N/A'))
+print(kopia.popitem())
+print(kopia)
+print(kopia.setdefault('k10'))
+print(kopia.get('k11'))
+print(kopia.setdefault('k11','w11'))
+print(kopia.get('k11'))
+print(kopia.values())
+
+slownik4={'k1':'w11','k2':'w22','k15':'w15'}
+print(slownik4)
+print(kopia)
+
+#Zadanie 3
+
+def Merge(l, p):
+    rs = []
+    i,j=0, 0
+    while i < len(l) and j < len(p):
+        if l[i] <= p[j]:
+            rs.append(l[i])
+            i = i+1
+        else:
+            rs.append(p[j])
+            j = j+1
+
+    while i < len(l):
+        rs.append(l[i])
+        i = i+1
+    while j < len(p):
+        rs.append(p[j])
+        j = j+1
+
+    return rs
+
+
+def MergeSort(arr):
+    if len(arr) < 2:
+        return arr
+
+    n = len(arr) // 2
+    l = arr[:n]
+    p = arr[n:]
+    return Merge(MergeSort(l), MergeSort(p))
+    
+print(MergeSort([0,12,1,21,3]))
+
+#Zadanie 4
+
+def QuickSort(arr2):
+    if len(arr2) < 2:
+        return arr2
+
+    el = arr2[0]
+    l = [x for x in arr2 if x < el]
+    s = [x for x in arr2 if x == el]
+    p = [x for x in arr2 if x > el]
+
+    return QuickSort(l) + s + QuickSort(p)
+    
+print(QuickSort([0,12,1,21,3]))
