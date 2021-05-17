@@ -1,0 +1,51 @@
+#MergeSort z zadania 3
+
+def Merge(l, p):
+    rs = []
+    i,j=0, 0
+    while i < len(l) and j < len(p):
+        if l[i] <= p[j]:
+            rs.append(l[i])
+            i = i+1
+        else:
+            rs.append(p[j])
+            j = j+1
+
+    while i < len(l):
+        rs.append(l[i])
+        i = i+1
+    while j < len(p):
+        rs.append(p[j])
+        j = j+1
+
+    return rs
+
+
+def MergeSort(arr):
+    if len(arr) < 2:
+        return arr
+
+    n = len(arr) // 2
+    l = arr[:n]
+    p = arr[n:]
+    return Merge(MergeSort(l), MergeSort(p))
+    
+#Zadanie 5
+def six_to_zero(arr3):
+    arr3=MergeSort(arr3)
+    s=-1
+    i=0
+    if len(arr3)>=6:
+        while s<0 and len(arr3)-i>=6:
+            s=arr3[i]+arr3[i+1]+arr3[i+2]+arr3[i+3]+arr3[i+4]+arr3[i+5]
+            i=i+1
+            if s==0:
+                return 'Istnieje'
+            elif s>0:
+                return 'Nie istnieje'
+            elif s<0 and len(arr3)-i<6:
+                return 'Nie istnieje'
+    else:
+        return 'Nie istnieje'
+        
+print(six_to_zero([8,3,-1,21,1,-1,1,-1,108,1]))
